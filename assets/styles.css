@@ -1,0 +1,74 @@
+@font-face {
+    font-family: 'asiyah';
+    src: url('AsiyahScript.otf') format("opentype");;
+}
+
+body {
+    background-color: black;
+    color: whitesmoke;
+    font-family: 'Lato', sans-serif;
+    font-size: 62.5%;
+}
+nav {
+    position: absolute;
+    right: 2em;
+    top: 1em;
+    color: grey;
+    font-size: 1.8em;
+}
+nav a {
+    color: whitesmoke;
+}
+nav img {
+    width: 6.8em;
+}
+
+#wrapper {
+    padding: 10em;
+}
+
+#input {
+    font-size: 1.8em;
+    color: grey;
+    display: none;
+}
+
+#userName {
+    border: none;
+    font-size: 3em;
+    color: grey;
+    background-color: transparent;
+    margin-top: 2em;
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: dimgrey;
+  }
+  ::-moz-placeholder { /* Firefox 19+ */
+    color: dimgrey;
+  }
+  :-ms-input-placeholder { /* IE 10+ */
+    color: dimgrey;
+  }
+  :-moz-placeholder { /* Firefox 18- */
+    color: dimgrey;
+  }
+
+#logo {
+    font-family: asiyah;
+    color: dimgrey;
+    font-size: 13.5em;
+    -ms-transform: rotate(-18deg);
+    -webkit-transform: rotate(-18deg);
+    transform: rotate(-18deg);
+    position: absolute;
+    top: -51px;
+    opacity: .7;
+    left: -16px;
+}
+
+#typed,
+#output {
+    font-size: 6em;
+    color: lawngreen;
+}
