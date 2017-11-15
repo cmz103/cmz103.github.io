@@ -10,22 +10,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var JumbotronComponent = (function () {
+var JumbotronComponent = /** @class */ (function () {
     function JumbotronComponent() {
         this.jbtHeading = "Hello World";
         this.jbtText = "Use this document as a way to quickly start any new project. All you get is this text and a mostly barebones HTML document.";
         this.jbtBtnText = "Read More";
         this.jbtBtnUrl = "/about";
     }
+    JumbotronComponent = __decorate([
+        core_1.Component({
+            moduleId: module.id,
+            selector: 'jumbotron',
+            templateUrl: 'jumbotron.component.html'
+        }),
+        __metadata("design:paramtypes", [])
+    ], JumbotronComponent);
     return JumbotronComponent;
 }());
-JumbotronComponent = __decorate([
-    core_1.Component({
-        moduleId: module.id,
-        selector: 'jumbotron',
-        templateUrl: 'jumbotron.component.html'
-    }),
-    __metadata("design:paramtypes", [])
-], JumbotronComponent);
 exports.JumbotronComponent = JumbotronComponent;
 //# sourceMappingURL=jumbotron.component.js.map

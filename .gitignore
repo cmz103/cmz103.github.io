@@ -67,4 +67,7 @@ dist/**/*.ttf
 dist/**/*.map
 dist/**/*.css
 
+# sourcedir 
+source/
+
 # End of https://www.gitignore.io/api/node
