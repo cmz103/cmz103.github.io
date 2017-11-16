@@ -1,3 +1,12 @@
+body {
+  padding-top: 5rem;
+  text-align: center;
+}
+.starter-template {
+  /* padding: 3rem 1.5rem; */
+  text-align: center;
+}
+
 /*
  * Globals
  */
@@ -9,8 +18,9 @@ h4,
 h5,
 h6 {
   color: black;
+  text-shadow: 2px 2px white;
 }
-
+/* 
 html,
 body {
   height: 100%;
@@ -21,6 +31,10 @@ body {
   text-align: center;
   display:flex;
   align-items:center;
+} */
+main {
+  /* background: white; */
+  
 }
 
 video {
@@ -33,7 +47,7 @@ video {
   height: auto;
   z-index: -100;
   transform: translateX(-50%) translateY(-50%);
-  background: url('assets/portfolio_spread.jpg') no-repeat;
+  background: url('assets/smoke.jpg') no-repeat;
   background-size: cover;
   transition: 1s opacity;
 }
@@ -44,31 +58,55 @@ video {
 }
 
 /* small phones portrait */
-@media (max-width: 576px) {
-  .container {
-    margin-top: 350px;
-  }
+@media screen
+and (max-width: 576px)
+and (orientation: portrait) {
   video {
     top: 70%;
   }
 }
 
+@media screen
+and (max-width: 768px)
+and (orientation: landscape) {
+  video {
+    top: 130%;
+  }
+}
+
+@media screen
+and (max-width: 736px)
+and (orientation: landscape) {
+  video {
+    top: 120%;
+  }
+}
+
+@media screen
+and (device-width: 568px)
+and (device-height: 320px)
+and (orientation: landscape) {
+  video {
+    top: 150%;
+  }
+}
+
 /* small phones landscape */
-@media (min-width: 576px) and (orientation: landscape) {
+/* @media (min-width: 576px) and (orientation: landscape) {
   .container {
     margin-top: 550px;
   }
   video {
     top: 115%;
   }
-}
+} */
 
 /* Medium devices (tablets, 768px and up) */
-@media (min-width: 768px) {
+/* @media (min-width: 768px) {
   .container {
     margin-top: 0;
   }
   video {
     top: 50%;
   }
- }
+ } */
