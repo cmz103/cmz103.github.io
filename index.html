@@ -27,11 +27,11 @@
             </blockquote>
             <p class="name">- Cedric Maniquiz</p>
             <p class="lead">
-              <a href="https://github.com/cmz103" class="btn btn-lg btn-outline-dark" title="Github Portfolio Development Projects">Github</a>
-              <a href="https://invis.io/B24VVL74X" class="btn btn-lg btn-outline-dark" title="Screen designs for Business Apps">Invision</a>
+              <a id="hplGithub" href="https://github.com/cmz103" class="btn btn-lg btn-outline-dark" title="Github Portfolio Design/Development Projects">Github</a>
+              <a id="hplInvision" href="https://invis.io/B24VVL74X" class="btn btn-lg btn-outline-dark" title="Screen designs for Business Apps">Invision</a>
               <br/>
               <br/>
-              <a href="http://cgman103.bitbucket.io" class="btn btn-sm btn-outline-dark" title="Legacy design projects">Legacy Design</a>
+              <a id="hpLegacy" href="http://cgman103.bitbucket.io" class="btn btn-sm btn-outline-dark" title="Legacy design projects">Legacy Design</a>
             </p>
             <p>
               <a href="https://goo.gl/forms/qRG0yD46xynpp8Eg1">Contact Me</a>
@@ -44,7 +44,9 @@
         </div>
       </div>
     </div>
-    <!-- /.container -->
+
+    <div id="viewProj" class="row"></div>
+
 
     <video autoplay loop muted poster="assets/smoke.jpg">
       <source src="assets/smoke.mp4" type="video/mp4">
@@ -52,15 +54,70 @@
       <source src="assets/smoke.webm" type="video/webm"> Your browser does not support the video tag.
     </video>
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
       crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
       crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vide/0.5.1/jquery.vide.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <!-- <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+    <script id="githubRepos" type="text/x-handlebars-template">
+      {{#each this}} {{#ifNotEquals id 73150008}}
+      <div class="col-sm col-md-4 col-lg-4">
+        <div class="card mb-2">
+          <!-- <img class="card-img-top" src="http://via.placeholder.com/350x150" alt="Card image cap"> -->
+          <div class="card-body">
+            <h4 class="card-title text-truncate" title="{{name}}">{{name}}</h4>
+            <p class="card-text text-truncate" title="{{description}}">{{description}}</p>
+            <p>{{language}}</p>
+            <a href="{{html_url}}" class="btn btn-primary btn-sm" title="{{html_url}}">Repo</a>
+          </div>
+        </div>
+      </div>
+      {{/ifNotEquals}} {{/each}}
+    </script>
+    <script>
+      Handlebars.registerHelper('ifNotEquals', function (arg1, arg2, options) {
+        return (arg1 != arg2) ? options.fn(this) : options.inverse(this);
+      });
+      Handlebars.registerHelper('ifEquals', function (arg1, arg2, options) {
+        return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
+      });
+      Handlebars.registerHelper('ifThird', function (index, options) {
+        if (index % 3 == 0) {
+          return options.fn(this);
+        } else {
+          return options.inverse(this);
+        }
 
+      });
+      Handlebars.registerHelper("showEl", function (index_count, block) {
+
+        if (parseInt(index_count) % 3 === 0) {
+          return block.fn(this);
+        }
+
+
+      });
+      $(function () {
+
+        var render = function (url, tplId, anchor) {
+
+          $.getJSON(url, function (data) {
+            console.log(data);
+            var source = document.getElementById(tplId).innerHTML;
+            var template = Handlebars.compile(source);
+            var context = data;
+            var html = template(context);
+            $(anchor).append(html);
+          });
+        };
+
+
+        render('https://api.github.com/users/cmz103/repos', 'githubRepos', '#viewProj');
+
+
+      })
+    </script>
 
 </body>
 
